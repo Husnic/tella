@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const aboutItems = [
-  { label: "Name", value: "Abdulwaheed Tella" },
   {
     label: "LinkedIn",
     value: "abdulwaheedtella",
@@ -25,8 +24,14 @@ export function AboutSection() {
             About Me
           </p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            Abdulwaheed Tella
+            Turning geospatial data into decisions
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-base">
+            I use GeoAI, remote sensing, and spatial analytics to translate
+            complex environmental and urban data into actionable insights for
+            sustainable development, climate resilience, and disaster risk
+            reduction.
+          </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 items-start gap-10 md:grid-cols-12">
@@ -42,14 +47,46 @@ export function AboutSection() {
           </div>
 
           <div className="md:order-2 md:col-span-6">
-            <h3 className="text-lg font-semibold">
-              Geospatial Analyst & Researcher
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
-              I&apos;m a researcher and data scientist focused on GeoAI,
-              geospatial analytics, climate change adaptation, and disaster risk
-              reduction.
-            </p>
+            <h3 className="text-lg font-semibold">What I focus on</h3>
+
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <p className="text-sm font-semibold text-foreground">
+                  GeoAI & spatial ML
+                </p>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  Feature engineering, model evaluation, and deployment-ready
+                  pipelines for spatial problems.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <p className="text-sm font-semibold text-foreground">
+                  Remote sensing
+                </p>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  Satellite-derived indicators for land use, exposure, and
+                  environmental change.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <p className="text-sm font-semibold text-foreground">
+                  Risk & resilience
+                </p>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  Evidence for climate adaptation, disaster risk reduction, and
+                  urban planning.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-background px-4 py-4">
+                <p className="text-sm font-semibold text-foreground">
+                  Data storytelling
+                </p>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  Clear narratives and visuals that help teams act with
+                  confidence.
+                </p>
+              </div>
+            </div>
 
             <div className="mt-6">
               <Link
@@ -61,7 +98,7 @@ export function AboutSection() {
             </div>
 
             <dl className="mt-8 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
-              {aboutItems.slice(0, 4).map((item) => (
+              {aboutItems.slice(0, 3).map((item) => (
                 <div
                   key={item.label}
                   className="rounded-lg border border-border bg-background px-4 py-3"
