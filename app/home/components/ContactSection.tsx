@@ -39,7 +39,7 @@ export default function ContactSection({
               showHeader ? "mt-10" : "mt-0"
             }`}
           >
-            <div className="rounded-2xl border border-border bg-card p-6 md:col-span-6">
+            {/* <div className="rounded-2xl border border-border bg-card p-6 md:col-span-6">
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">
@@ -89,7 +89,7 @@ export default function ContactSection({
                   Send Message
                 </a>
               </div>
-            </div>
+            </div> */}
 
             <div className="rounded-2xl border border-border bg-card p-6 md:col-span-6">
               <h3 className="text-base font-semibold">Contact Information</h3>
