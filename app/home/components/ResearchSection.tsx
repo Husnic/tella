@@ -38,7 +38,7 @@ export default async function ResearchSection() {
           </div>
           <Link
             href="/research"
-            className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+            className="hidden h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground lg:inline-flex"
           >
             View all
           </Link>
@@ -79,6 +79,15 @@ export default async function ResearchSection() {
               environment to automatically load research posts from Blogger.
             </div>
           )}
+        </div>
+
+        <div className="mt-10 flex justify-center lg:hidden">
+          <Link
+            href="/research"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+          >
+            View all research
+          </Link>
         </div>
       </div>
     </section>

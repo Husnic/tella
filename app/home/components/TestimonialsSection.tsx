@@ -5,32 +5,36 @@ import { useMemo, useRef, useState } from "react";
 
 const testimonials = [
   {
-    name: "Robert Beck",
-    role: "Product Designer",
+    name: "Abdul-Lateef Balogun, PhD",
+    role: "Geospatial Intelligence | Digital Leadership & Strategy | Consulting",
+    meta: "Manager",
     quote:
-      "Abdulwaheed's expertise in geospatial analysis has significantly improved our project outcomes. His insights are invaluable.",
+      "Abdulwaheed is a smart, diligent and conscientious self-starter who's keen to deliver outstanding outcomes. I found him to be resilient, resourceful and very reliable. He received feedback positively and showed capacity to work well independently and as part of a team. I was impressed by his commitment to continuous improvement and I will not hesitate to hire him again for a suitable opportunity.",
     imageSrc: "/images/client/img-1.jpg",
   },
   {
-    name: "William Appel",
-    role: "Founder & CEO",
+    name: "Chukwuma Okolie, Ph.D",
+    role: "AI | Geospatial Science",
+    meta: "Collaborator",
     quote:
-      "Working with Abdulwaheed was a game-changer for our environmental initiatives. His research is top-notch.",
-    imageSrc: "/images/client/img-2.jpg",
+      "I have a very good relationship with Abdulwaheed. We have collaborated on several scientific initiatives, and have co-authored several research articles. His exceptional qualifications, track record of achievements, and commitment to excellence make him an outstanding individual and researcher. Abdulwaheed possesses a combination of intellectual rigor, creativity, and dedication, which makes him a highly valuable asset to academic and professional settings. I am confident that he will excel in future endeavors.",
+    imageSrc: "/images/client/chukwuma.png",
   },
   {
-    name: "Earlene Mart",
-    role: "Digital Marketer",
+    name: "Naheem Adebisi, Ph.D.",
+    role: "Imagery Product Engineer at Esri",
+    meta: "Colleague",
     quote:
-      "Abdulwaheed's dedication to sustainable practices has made a significant impact on our projects. Highly recommended!",
-    imageSrc: "/images/client/img-3.jpg",
+      "Abdulwaheed Tella is an exceptional colleague with extraordinary skills, research capabilities and experience. In terms of skills, He possesses a remarkable proficiency in remote sensing, GIS analysis and Artificial Intelligence particularly machine and deep learning. His ability to work with complex geospatial dataset, utilize varios GIS tools and coding skills helped him to authored many highly cited papers in top journal some of which I had the honor of co-authoring. This also speaks to his collaborative skills.",
+    imageSrc: "/images/client/naheem.png",
   },
   {
-    name: "Timothy Green",
-    role: "Marketing Officer",
+    name: "Shamsudeen Yekeen",
+    role: "Ph.D Candidate | GIS & Remote Sensing",
+    meta: "Teammate",
     quote:
-      "His analytical skills and attention to detail are exceptional. Abdulwaheed is a true asset to any team.",
-    imageSrc: "/images/client/img-4.jpg",
+      "I have collaborated with Abdulwaheed on various geospatial analysis projects, and his commitment, meticulousness, and collaborative spirit consistently position him as my preferred partner.",
+    imageSrc: "/images/client/shamsudeen.png",
   },
 ] as const;
 
@@ -64,7 +68,7 @@ export default function TestimonialsSection() {
             Testimonials
           </p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            Clients Feedback
+            LinkedIn Recommendations
           </h2>
         </div>
 
@@ -79,9 +83,9 @@ export default function TestimonialsSection() {
                 data-index={idx}
                 className="w-[88%] shrink-0 snap-start sm:w-[60%] lg:w-[42%]"
               >
-                <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <div className="h-full flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm">
                   <div className="flex items-center gap-4">
-                    <div className="relative h-14 w-14 overflow-hidden rounded-full border border-border bg-secondary">
+                    <div className="relative h-14 w-14 min-w-14 overflow-hidden rounded-full border border-border bg-secondary">
                       <Image
                         src={item.imageSrc}
                         alt={item.name}
@@ -92,10 +96,13 @@ export default function TestimonialsSection() {
                     <div>
                       <p className="text-sm font-semibold">{item.name}</p>
                       <p className="mt-1 text-xs text-muted">{item.role}</p>
+                      {"meta" in item ? (
+                        <p className="mt-1 text-xs text-muted">{item.meta}</p>
+                      ) : null}
                     </div>
                   </div>
 
-                  <p className="mt-5 text-sm leading-7 text-foreground/80 sm:text-base">
+                  <p className="my-auto text-sm leading-7 text-foreground/80 sm:text-base">
                     “{item.quote}”
                   </p>
                 </div>

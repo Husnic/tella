@@ -24,7 +24,7 @@ export default async function BlogSection() {
             </div>
             <Link
               href="/blog"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+              className="hidden h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground lg:inline-flex"
             >
               View all
             </Link>
@@ -73,6 +73,15 @@ export default async function BlogSection() {
                 to load blog posts.
               </div>
             )}
+          </div>
+
+          <div className="relative mt-10 lg:hidden">
+            <Link
+              href="/blog"
+              className="inline-flex h-11 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+            >
+              View all
+            </Link>
           </div>
         </div>
       </div>

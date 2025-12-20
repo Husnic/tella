@@ -54,7 +54,7 @@ export function AboutSection() {
             <div className="mt-6">
               <Link
                 href="/about"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+                className="hidden h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground lg:inline-flex"
               >
                 Read full bio
               </Link>
@@ -85,6 +85,15 @@ export function AboutSection() {
               ))}
             </dl>
           </div>
+        </div>
+
+        <div className="mt-10 flex justify-center lg:hidden">
+          <Link
+            href="/about"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+          >
+            Read full bio
+          </Link>
         </div>
       </div>
     </section>

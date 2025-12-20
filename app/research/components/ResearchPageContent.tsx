@@ -152,6 +152,7 @@ export default async function ResearchPageContent({
                 </Link>
                 <a
                   href="/CV_Abdulwaheed_Tella_2025.pdf"
+                  download
                   className="inline-flex h-11 items-center justify-center rounded-full border border-border/40 bg-background/5 px-6 text-sm font-semibold text-background"
                 >
                   Download CV

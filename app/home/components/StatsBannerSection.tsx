@@ -51,7 +51,8 @@ export default function StatsBannerSection() {
 
             <div className="mt-10 flex justify-center">
               <a
-                href="/CV_Abdulwaheed_Tella_2025.pdf"
+                href="/CV_Abdulwaheed Tella_2025.pdf"
+                download
                 className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
               >
                 Download CV

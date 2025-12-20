@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -39,9 +40,21 @@ export function Navbar() {
       ].join(" ")}
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link href="/" className="font-semibold tracking-tight">
-          <span className="text-foreground">Abdulwaheed</span>{" "}
-          <span className="text-primary">Tella</span>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-3 font-semibold tracking-tight"
+        >
+          <span className="inline-flex items-center justify-center rounded-md bg-white p-1.5 shadow-sm ring-1 ring-border">
+            <Image
+              src="/images/logo-dark.png"
+              alt="Abdulwaheed Tella"
+              width={132}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
+          </span>
+          <span className="sr-only">Abdulwaheed Tella</span>
         </Link>
 
         <button

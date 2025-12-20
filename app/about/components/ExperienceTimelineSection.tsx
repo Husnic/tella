@@ -2,30 +2,97 @@
 
 import { useMemo, useState } from "react";
 
+import {
+  Award,
+  BookOpen,
+  GraduationCap,
+  Heart,
+  Search,
+  Star,
+} from "lucide-react";
+
 import type { ExperienceItem } from "@/lib/experience";
 import { EXPERIENCE_CATEGORIES } from "@/lib/experience";
 
 type CategoryId = (typeof EXPERIENCE_CATEGORIES)[number]["id"];
 
-function ExperienceCards({ items }: { items: ReadonlyArray<ExperienceItem> }) {
+function CategoryIcon({
+  id,
+  className = "h-4 w-4",
+}: {
+  id: CategoryId;
+  className?: string;
+}) {
+  switch (id) {
+    case "research":
+      return <Search className={className} aria-hidden />;
+    case "teaching":
+      return <GraduationCap className={className} aria-hidden />;
+    case "leadership":
+      return <Star className={className} aria-hidden />;
+    case "volunteer":
+      return <Heart className={className} aria-hidden />;
+    case "education":
+      return <BookOpen className={className} aria-hidden />;
+    case "awards":
+      return <Award className={className} aria-hidden />;
+    default:
+      return null;
+  }
+}
+
+function iconForItem(item: ExperienceItem, fallback: CategoryId): CategoryId {
+  const pill = item.pill?.toLowerCase() ?? "";
+
+  if (pill.includes("teach") || pill.includes("mentor")) return "teaching";
+  if (pill.includes("leader")) return "leadership";
+  if (pill.includes("volunteer")) return "volunteer";
+  if (pill.includes("award") || pill.includes("commend")) return "awards";
+  if (
+    pill.includes("education") ||
+    pill.includes("phd") ||
+    pill.includes("msc")
+  ) {
+    return "education";
+  }
+
+  return fallback;
+}
+
+function ExperienceCards({
+  items,
+  fallbackIcon,
+}: {
+  items: ReadonlyArray<ExperienceItem>;
+  fallbackIcon: CategoryId;
+}) {
   return (
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
       {items.map((item) => (
         <article
           key={`${item.period}-${item.title}`}
-          className="rounded-2xl border border-border bg-background p-6"
+          className="rounded-2xl border border-border border-b-primary bg-background p-6"
         >
           <div className="flex items-start justify-between gap-4">
             <p className="text-sm font-semibold text-foreground/80">
               {item.period}
             </p>
             {item.pill ? (
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <CategoryIcon
+                  id={iconForItem(item, fallbackIcon)}
+                  className="h-3.5 w-3.5"
+                />
                 {item.pill}
               </span>
             ) : null}
           </div>
-          <h3 className="mt-3 text-base font-semibold">{item.title}</h3>
+          <h3 className="mt-3 flex items-start gap-2 text-base font-semibold">
+            <span className="mt-0.5 text-foreground/70">
+              <CategoryIcon id={iconForItem(item, fallbackIcon)} />
+            </span>
+            <span>{item.title}</span>
+          </h3>
           <p className="mt-1 text-sm text-muted">{item.org}</p>
           {item.description ? (
             <p className="mt-3 text-sm leading-7 text-foreground/80">
@@ -114,6 +181,15 @@ export default function ExperienceTimelineSection() {
                         }`}
                       >
                         <span
+                          className={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border ${
+                            isActive
+                              ? "border-primary/30 bg-primary/10 text-primary"
+                              : "border-border bg-background text-foreground/70"
+                          }`}
+                        >
+                          <CategoryIcon id={category.id} />
+                        </span>
+                        <span
                           className={`mt-1 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${
                             isActive
                               ? "border-primary bg-primary"
@@ -141,7 +217,7 @@ export default function ExperienceTimelineSection() {
             <div className="mb-6">
               <h3 className="text-lg font-semibold">{active.label}</h3>
             </div>
-            <ExperienceCards items={active.items} />
+            <ExperienceCards items={active.items} fallbackIcon={active.id} />
           </div>
         </div>
       </div>

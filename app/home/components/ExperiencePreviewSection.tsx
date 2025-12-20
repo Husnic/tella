@@ -37,7 +37,7 @@ export default function ExperiencePreviewSection() {
         <div className="relative overflow-hidden rounded-3xl border border-border/40 bg-foreground px-5 py-10 sm:px-10">
           <div className="pointer-events-none absolute inset-0 bg-dot-pattern-dark opacity-80" />
 
-          <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
             <div>
               <p className="inline-flex rounded-full border border-primary/60 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground">
                 Experience
@@ -55,8 +55,8 @@ export default function ExperiencePreviewSection() {
             </div>
 
             <Link
-              href="/experience"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+              href="/about#experience"
+              className="hidden lg:inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
             >
               View full experience
             </Link>
@@ -84,6 +84,13 @@ export default function ExperiencePreviewSection() {
             ))}
           </div>
         </div>
+
+        <Link
+          href="/about#experience"
+          className="flex w-fit lg:hidden mx-auto mt-4 h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+        >
+          View full experience
+        </Link>
       </div>
     </section>
   );

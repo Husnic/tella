@@ -40,7 +40,7 @@ export default function ServicesSection() {
               My Expertise
             </h2>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-6 hidden flex-col gap-3 lg:flex lg:flex-row lg:items-center">
               <Link
                 href="/contact"
                 className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
@@ -84,6 +84,21 @@ export default function ServicesSection() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="relative mt-10 flex flex-col gap-3 lg:hidden">
+            <Link
+              href="/contact"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+            >
+              Contact me
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-background px-6 text-sm font-semibold text-foreground"
+            >
+              View services
+            </Link>
           </div>
         </div>
       </div>

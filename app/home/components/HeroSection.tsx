@@ -27,7 +27,7 @@ export function HeroSection() {
           <div className="mt-8">
             <a
               href="#about"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-transparent px-6 text-sm font-semibold text-foreground hover:bg-secondary"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-primary/20 px-6 text-sm font-semibold text-foreground hover:bg-secondary"
             >
               Scroll to explore
             </a>
