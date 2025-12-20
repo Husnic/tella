@@ -9,7 +9,7 @@ const testimonials = [
     role: "Geospatial Intelligence | Digital Leadership & Strategy | Consulting",
     meta: "Manager",
     quote:
-      "Abdulwaheed is a smart, diligent and conscientious self-starter who's keen to deliver outstanding outcomes. I found him to be resilient, resourceful and very reliable. He received feedback positively and showed capacity to work well independently and as part of a team. I was impressed by his commitment to continuous improvement and I will not hesitate to hire him again for a suitable opportunity.",
+      "Abdulwaheed is a smart, diligent and conscientious self-starter who's keen to deliver outstanding outcomes. I found him to be resilient, resourceful and very reliable. I was impressed by his commitment to continuous improvement and I will not hesitate to hire him again for a suitable opportunity.",
     imageSrc: "/images/client/img-1.jpg",
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     role: "AI | Geospatial Science",
     meta: "Collaborator",
     quote:
-      "I have a very good relationship with Abdulwaheed. We have collaborated on several scientific initiatives, and have co-authored several research articles. His exceptional qualifications, track record of achievements, and commitment to excellence make him an outstanding individual and researcher. Abdulwaheed possesses a combination of intellectual rigor, creativity, and dedication, which makes him a highly valuable asset to academic and professional settings. I am confident that he will excel in future endeavors.",
+      "I have a very good relationship with Abdulwaheed. We have collaborated on several scientific initiatives, and have co-authored several research articles. His exceptional qualifications, track record of achievements, and commitment to excellence make him an outstanding individual and researcher.",
     imageSrc: "/images/client/chukwuma.png",
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     role: "Imagery Product Engineer at Esri",
     meta: "Colleague",
     quote:
-      "Abdulwaheed Tella is an exceptional colleague with extraordinary skills, research capabilities and experience. In terms of skills, He possesses a remarkable proficiency in remote sensing, GIS analysis and Artificial Intelligence particularly machine and deep learning. His ability to work with complex geospatial dataset, utilize varios GIS tools and coding skills helped him to authored many highly cited papers in top journal some of which I had the honor of co-authoring. This also speaks to his collaborative skills.",
+      "Abdulwaheed Tella is an exceptional colleague with extraordinary skills, research capabilities and experience. His ability to work with complex geospatial dataset, utilize varios GIS tools and coding skills helped him to authored many highly cited papers in top journal some of which I had the honor of co-authoring.",
     imageSrc: "/images/client/naheem.png",
   },
   {
@@ -61,15 +61,26 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonial" className="border-t border-border bg-background">
+    <section
+      id="testimonial"
+      className="relative border-t border-border bg-gradient-to-b from-white to-secondary"
+    >
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 md:py-20">
         <div className="text-center">
-          <p className="inline-flex rounded-full border border-primary px-4 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-            Testimonials
-          </p>
-          <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            LinkedIn Recommendations
+          <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 px-4 py-1.5 ring-1 ring-primary/20">
+            <span className="text-xs font-bold uppercase tracking-wide text-primary">
+              Testimonials
+            </span>
+          </div>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            What{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Colleagues Say
+            </span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-muted sm:text-lg">
+            Recommendations from collaborators and colleagues.
+          </p>
         </div>
 
         <div className="mt-10">
@@ -83,9 +94,10 @@ export default function TestimonialsSection() {
                 data-index={idx}
                 className="w-[88%] shrink-0 snap-start sm:w-[60%] lg:w-[42%]"
               >
-                <div className="h-full flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm">
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-14 w-14 min-w-14 overflow-hidden rounded-full border border-border bg-secondary">
+                <div className="group relative h-full flex flex-col overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-white to-primary/5 p-6 shadow-lg transition-all hover:shadow-xl">
+                  <div className="absolute right-0 top-0 h-32 w-32 translate-x-16 -translate-y-16 rounded-full bg-primary/10 blur-2xl" />
+                  <div className="relative flex items-center gap-4">
+                    <div className="relative h-14 w-14 min-w-14 overflow-hidden rounded-full border-2 border-primary/20 bg-secondary shadow-md">
                       <Image
                         src={item.imageSrc}
                         alt={item.name}
@@ -94,17 +106,30 @@ export default function TestimonialsSection() {
                       />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold">{item.name}</p>
+                      <p className="text-sm font-bold text-foreground">
+                        {item.name}
+                      </p>
                       <p className="mt-1 text-xs text-muted">{item.role}</p>
                       {"meta" in item ? (
-                        <p className="mt-1 text-xs text-muted">{item.meta}</p>
+                        <p className="mt-1 text-xs font-semibold text-primary">
+                          {item.meta}
+                        </p>
                       ) : null}
                     </div>
                   </div>
 
-                  <p className="my-auto text-sm leading-7 text-foreground/80 sm:text-base">
-                    “{item.quote}”
-                  </p>
+                  <div className="relative my-auto">
+                    <svg
+                      className="absolute -left-2 -top-2 h-8 w-8 text-primary/20"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                    >
+                      <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z" />
+                    </svg>
+                    <p className="relative py-3 text-sm leading-7 text-muted sm:text-base">
+                      {item.quote}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -113,14 +138,14 @@ export default function TestimonialsSection() {
           <div className="mt-6 flex items-center justify-center gap-3">
             <button
               type="button"
-              className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium"
+              className="rounded-full border-2 border-primary bg-white px-6 py-2 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
               onClick={() => scrollToIndex(index - 1)}
             >
               Prev
             </button>
             <button
               type="button"
-              className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+              className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-2 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30"
               onClick={() => scrollToIndex(index + 1)}
             >
               Next

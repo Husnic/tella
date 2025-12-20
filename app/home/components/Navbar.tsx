@@ -33,25 +33,25 @@ export function Navbar() {
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-50 transition-all",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         isSticky
-          ? "border-b border-border bg-background/80 backdrop-blur"
+          ? "border-b border-border bg-white/90 backdrop-blur-xl shadow-lg"
           : "bg-transparent",
       ].join(" ")}
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-3 font-semibold tracking-tight"
+          className="group inline-flex items-center gap-3 font-semibold tracking-tight"
         >
-          <span className="inline-flex items-center justify-center rounded-md bg-white p-1.5 shadow-sm ring-1 ring-border">
+          <span className="inline-flex items-center justify-center rounded-lg bg-white p-2 shadow-md ring-1 ring-border transition-all group-hover:shadow-lg group-hover:ring-primary/20">
             <Image
               src="/images/logo-dark.png"
               alt="Abdulwaheed Tella"
               width={132}
               height={32}
               priority
-              className="h-8 w-auto"
+              className="h-7 w-auto transition-transform group-hover:scale-105"
             />
           </span>
           <span className="sr-only">Abdulwaheed Tella</span>
@@ -59,19 +59,32 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md border border-border px-3 py-2 text-sm sm:hidden"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-primary hover:text-white sm:hidden"
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((prev) => !prev)}
         >
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
           Menu
         </button>
 
-        <nav className="hidden items-center gap-6 sm:flex">
+        <nav className="hidden items-center gap-1 sm:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="rounded-lg px-4 py-2 text-sm font-semibold text-foreground/80 transition-all hover:bg-primary/10 hover:text-primary"
             >
               {link.label}
             </Link>
@@ -80,13 +93,13 @@ export function Navbar() {
       </div>
 
       {isOpen ? (
-        <div className="border-t border-border bg-background sm:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col px-4 py-3">
+        <div className="border-t border-border bg-white/95 backdrop-blur-xl shadow-lg sm:hidden">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-md px-2 py-2 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-foreground"
+                className="rounded-lg px-4 py-3 text-sm font-semibold text-foreground/80 transition-all hover:bg-primary/10 hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

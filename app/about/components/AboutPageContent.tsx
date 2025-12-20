@@ -135,8 +135,8 @@ export default function AboutPageContent() {
                 Contact me
               </Link>
               <a
-                href="/CV_Abdulwaheed_Tella_2025.pdf"
-                download
+                href="/images/CV_Abdulwaheed Tella_2025.pdf"
+                download="CV_Abdulwaheed_Tella_2025.pdf"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-background px-6 text-sm font-semibold text-foreground"
               >
                 Download CV

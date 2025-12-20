@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 
 import Footer from "@/app/home/components/Footer";
 import Navbar from "@/app/home/components/Navbar";
 
-const sora = Sora({
+const lora = Lora({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -81,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={sora.variable}>
+    <html lang="en" className={lora.variable}>
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         <script
           type="application/ld+json"
