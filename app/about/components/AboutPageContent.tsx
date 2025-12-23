@@ -99,11 +99,11 @@ export default function AboutPageContent() {
               </div>
 
               <div className="md:col-span-5">
-                <div className="relative mx-auto aspect-square w-full max-w-sm">
+                <div className="relative mx-auto aspect-square w-full h-[384px] max-w-sm">
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 blur-2xl" />
-                  <div className="relative overflow-hidden rounded-2xl border-4 border-white bg-secondary shadow-2xl ring-1 ring-border">
+                  <div className="relative h-full overflow-hidden rounded-2xl border-4 border-white bg-secondary shadow-2xl ring-1 ring-border">
                     <Image
-                      src="/images/AbdulWaheed_Tella.jpg"
+                      src="/images/AbdulWaheed_Tella1.png"
                       alt="Abdulwaheed Tella"
                       fill
                       className="object-cover"
