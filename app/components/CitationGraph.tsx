@@ -15,12 +15,12 @@ export default function CitationGraph({ data }: CitationGraphProps) {
 
   const maxCitations = Math.max(...data.map((d) => d.citations));
   const chartHeight = 200;
-  const chartWidth = 600;
+  const chartWidth = 300;
   const barWidth = chartWidth / data.length - 10;
   const padding = 40;
 
   return (
-    <div className="w-full overflow-hidden rounded-lg border border-border bg-white p-6">
+    <div className="w-full overflow-hidden rounded-lg border border-border bg-white p-6 max-w-sm ">
       <svg
         width="100%"
         height={chartHeight + padding + 40}
