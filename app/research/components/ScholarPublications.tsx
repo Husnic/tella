@@ -4,6 +4,7 @@ import {
 } from "@/lib/google-scholar";
 import Link from "next/link";
 import CitationGraph from "@/app/components/CitationGraph";
+import { EXPERIENCE_STATS } from "@/lib/experience";
 
 export default async function ScholarPublications() {
   const publications = await getScholarPublications();
@@ -114,7 +115,7 @@ export default async function ScholarPublications() {
       {/* Publications List */}
       <div className="space-y-4">
         <h3 className="text-xl font-bold text-foreground">
-          All Publications ({publications.length})
+          All Publications ({EXPERIENCE_STATS.publications}+)
         </h3>
         <div className="grid grid-cols-1 gap-4">
           {publications.map((pub, idx) => {

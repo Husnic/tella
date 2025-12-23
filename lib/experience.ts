@@ -6,6 +6,13 @@ export type ExperienceItem = {
   description?: string;
 };
 
+export const EXPERIENCE_STATS = {
+  publications: "24",
+  yearsOfExperience: new Date().getFullYear() - 2018,
+  conferences: "6+",
+  awards: "9+",
+};
+
 export type ExperienceCategory = {
   id:
     | "research"

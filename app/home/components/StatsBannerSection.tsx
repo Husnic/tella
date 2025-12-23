@@ -1,10 +1,11 @@
+import { EXPERIENCE_STATS } from "@/lib/experience";
 import Image from "next/image";
 
 const stats = [
-  { value: "13", label: "Publications" },
-  { value: "7+", label: "Years of\nexperience" },
-  { value: "6+", label: "Conference" },
-  { value: "9+", label: "Awards" },
+  { value: EXPERIENCE_STATS.publications, label: "Publications" },
+  { value: EXPERIENCE_STATS.yearsOfExperience, label: "Years of\nexperience" },
+  { value: EXPERIENCE_STATS.conferences, label: "Conference" },
+  { value: EXPERIENCE_STATS.awards, label: "Awards" },
 ] as const;
 
 export default function StatsBannerSection() {
