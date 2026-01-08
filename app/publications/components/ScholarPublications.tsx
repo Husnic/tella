@@ -57,10 +57,10 @@ export default async function ScholarPublications() {
                 </div>
                 <div className="rounded-lg border border-border bg-white p-4 shadow-sm">
                   <p className="text-2xl font-bold text-warning">
-                    {stats.citationsSince2020}
+                    {stats.citationsRecent}
                   </p>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
-                    Since 2020
+                    Since {stats.recentYear}
                   </p>
                 </div>
               </div>
@@ -114,9 +114,7 @@ export default async function ScholarPublications() {
 
       {/* Publications List */}
       <div className="space-y-4">
-        <h3 className="text-xl font-bold text-foreground">
-          All Publications ({EXPERIENCE_STATS.publications}+)
-        </h3>
+        <h3 className="text-xl font-bold text-foreground">All Publications</h3>
         <div className="grid grid-cols-1 gap-4">
           {publications.map((pub, idx) => {
             const citedBy = pub.cited_by?.value || 0;

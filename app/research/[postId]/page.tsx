@@ -14,72 +14,72 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { postId } = await params;
 
-  const blogId = process.env.BLOGGER_BLOG_ID;
+  const researchBlogId = process.env.BLOGGER_RESEARCH_ID;
 
-  if (!blogId) {
+  if (!researchBlogId) {
     return {
-      title: "Blog",
-      description: "Blog post",
+      title: "Research Update",
+      description: "Research update post",
     };
   }
 
-  const post = await fetchBloggerPost(blogId, postId);
+  const post = await fetchBloggerPost(researchBlogId, postId);
 
   if (!post) {
     return {
-      title: "Blog",
-      description: "Blog post",
+      title: "Research Update",
+      description: "Research update post",
     };
   }
 
   const siteUrl = "https://abdulwaheedtella.com";
-  const postUrl = `${siteUrl}/blog/${postId}`;
+  const postUrl = `${siteUrl}/research/${postId}`;
 
   return {
     title: post.title,
-    description: `Blog post: ${post.title}`,
+    description: `Research update: ${post.title}`,
     metadataBase: new URL(siteUrl),
     alternates: {
       canonical: postUrl,
     },
     openGraph: {
       title: post.title,
-      description: `Blog post: ${post.title}`,
+      description: `Research update: ${post.title}`,
       url: postUrl,
       type: "article",
       images: post.imageUrl ? [{ url: post.imageUrl }] : undefined,
     },
     twitter: {
       title: post.title,
-      description: `Blog post: ${post.title}`,
+      description: `Research update: ${post.title}`,
       card: "summary_large_image",
       images: post.imageUrl ? [post.imageUrl] : undefined,
     },
   };
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function ResearchPostPage({ params }: PageProps) {
   const { postId } = await params;
 
-  const blogId = process.env.BLOGGER_BLOG_ID;
+  const researchBlogId = process.env.BLOGGER_PORTFOLIO_ID;
 
-  if (!blogId) {
+  if (!researchBlogId) {
     notFound();
   }
 
-  const post = await fetchBloggerPost(blogId, postId);
+  const post = await fetchBloggerPost(researchBlogId, postId);
 
   if (!post) {
     notFound();
   }
 
   const siteUrl = "https://abdulwaheedtella.com";
-  const postUrl = `${siteUrl}/blog/${postId}`;
+  const postUrl = `${siteUrl}/research/${postId}`;
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-20 sm:px-6">
       <Link
-        href="/blog"
+        href="/research"
         className="text-sm font-semibold text-primary hover:underline"
       >
         ← Back

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/about#experience", label: "Experience" },
+  { href: "/publications", label: "Publications" },
   { href: "/research", label: "Research" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
@@ -59,7 +59,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-primary hover:text-white sm:hidden"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-all hover:bg-primary hover:text-white md:hidden"
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((prev) => !prev)}
         >
@@ -79,7 +79,7 @@ export function Navbar() {
           Menu
         </button>
 
-        <nav className="hidden items-center gap-1 sm:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -93,7 +93,7 @@ export function Navbar() {
       </div>
 
       {isOpen ? (
-        <div className="border-t border-border bg-white/95 backdrop-blur-xl shadow-lg sm:hidden">
+        <div className="border-t border-border bg-white/95 backdrop-blur-xl shadow-lg md:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
             {links.map((link) => (
               <Link

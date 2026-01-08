@@ -39,9 +39,9 @@ export interface ScholarData {
   articles?: ScholarArticle[];
   cited_by?: {
     table?: Array<{
-      citations?: { all: number; since_2020: number };
-      h_index?: { all: number; since_2020: number };
-      i10_index?: { all: number; since_2020: number };
+      citations?: { all: number; [key: string]: number };
+      h_index?: { all: number; [key: string]: number };
+      i10_index?: { all: number; [key: string]: number };
     }>;
     graph?: Array<{ year: number; citations: number }>;
   };
@@ -147,7 +147,8 @@ export async function getScholarProfile(
 
 export async function getScholarCitationStats(authorId?: string): Promise<{
   totalCitations: number;
-  citationsSince2020: number;
+  citationsRecent: number;
+  recentYear: number;
   hIndex: number;
   i10Index: number;
   citationGraph: Array<{ year: number; citations: number }>;
@@ -167,9 +168,22 @@ export async function getScholarCitationStats(authorId?: string): Promise<{
   const table = data.cited_by.table || [];
   const graph = data.cited_by.graph || [];
 
+  // Find the "since_XXXX" key dynamically
+  const citationsObj = table[0]?.citations || {};
+  const sinceKey = Object.keys(citationsObj).find((key) =>
+    key.startsWith("since_")
+  );
+  const recentYear = sinceKey
+    ? parseInt(sinceKey.replace("since_", ""))
+    : new Date().getFullYear() - 5;
+  const citationsRecent = sinceKey
+    ? (citationsObj[sinceKey as keyof typeof citationsObj] as number)
+    : 0;
+
   return {
     totalCitations: table[0]?.citations?.all || 0,
-    citationsSince2020: table[0]?.citations?.since_2020 || 0,
+    citationsRecent,
+    recentYear,
     hIndex: table[1]?.h_index?.all || 0,
     i10Index: table[2]?.i10_index?.all || 0,
     citationGraph: graph,

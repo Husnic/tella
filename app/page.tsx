@@ -3,7 +3,8 @@ import BlogSection from "./home/components/BlogSection";
 import ExperiencePreviewSection from "./home/components/ExperiencePreviewSection";
 import HeroSection from "./home/components/HeroSection";
 import HomeContactSection from "./home/components/HomeContactSection";
-import ResearchSection from "./home/components/ResearchSection";
+import PublicationsSection from "./home/components/PublicationSection";
+import ResearchUpdatesSection from "./home/components/ResearchUpdatesSection";
 import ServicesSection from "./home/components/ServicesSection";
 import StatsBannerSection from "./home/components/StatsBannerSection";
 import TestimonialsSection from "./home/components/TestimonialsSection";
@@ -14,7 +15,8 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ExperiencePreviewSection />
-      <ResearchSection />
+      <PublicationsSection />
+      <ResearchUpdatesSection />
       <ServicesSection />
       <StatsBannerSection />
       <TestimonialsSection />

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import ResearchPageContent from "@/app/research/components/ResearchPageContent";
 import PageHeaderBanner from "@/app/components/PageHeaderBanner";
+import ResearchIndex from "./components/ResearchIndex";
 
 export const metadata: Metadata = {
-  title: "Research",
+  title: "Research Blog",
   description:
-    "Research publications and outputs by Abdulwaheed Tella, including GeoAI and geospatial analytics work.",
+    "Research updates and project progress by Abdulwaheed Tella, sharing insights from ongoing work in GeoAI and environmental resilience.",
   alternates: {
     canonical: "/research",
   },
@@ -16,12 +16,12 @@ export default function ResearchPage() {
   return (
     <main className="pt-28">
       <PageHeaderBanner
-        title="Research"
-        eyebrow="Publications"
-        description="Selected publications and research outputs across GeoAI, geospatial analytics, and environmental risk modelling."
-        imageSrc="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=2400&q=80"
+        title="Research Blog"
+        eyebrow="Updates"
+        description="Updates on ongoing research projects, methodologies, and field work in GeoAI and environmental resilience."
+        imageSrc="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=2400&q=80"
       />
-      <ResearchPageContent showHeader={false} />
+      <ResearchIndex showHeader={false} />
     </main>
   );
 }

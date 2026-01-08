@@ -1,7 +1,7 @@
 import { getScholarPublications } from "@/lib/google-scholar";
 import Link from "next/link";
 
-export default async function ResearchSection() {
+export default async function PublicationsSection() {
   const publications = await getScholarPublications();
 
   return (
@@ -28,7 +28,7 @@ export default async function ResearchSection() {
             </p>
           </div>
           <Link
-            href="/research"
+            href="/publications"
             className="group hidden h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 lg:inline-flex"
           >
             View all
@@ -127,7 +127,7 @@ export default async function ResearchSection() {
 
         <div className="mt-10 flex justify-center lg:hidden">
           <Link
-            href="/research"
+            href="/publications"
             className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-8 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30"
           >
             View all research

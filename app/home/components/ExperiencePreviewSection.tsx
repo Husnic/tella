@@ -3,7 +3,7 @@ import Link from "next/link";
 const highlights = [
   {
     title: "Doctoral Researcher",
-    org: "Monash University Malaysia",
+    org: "Monash University",
     period: "2023 - 2027",
     pill: "Research",
   },
@@ -20,7 +20,7 @@ const highlights = [
     pill: "Leadership",
   },
   {
-    title: "Volunteer Research Scientist",
+    title: "Research Scientist",
     org: "Foresight Institute of Research and Translation, Nigeria",
     period: "2018 - 2022",
     pill: "Volunteer",

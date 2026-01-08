@@ -24,7 +24,7 @@ const focusAreas = [
   },
 ] as const;
 
-export default async function ResearchPageContent({
+export default async function PublicationsPageContent({
   showHeader = true,
 }: {
   showHeader?: boolean;
